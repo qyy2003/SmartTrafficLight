@@ -1,0 +1,77 @@
+#container {
+display: grid;
+	 //grid-row-gap: 20px;
+	 //grid-column-gap: 20px;
+	 grid-template-columns: 70% 30%;
+	 grid-template-rows: 150px 50px 150px 50px auto;
+	background-color:  #F5BCA9;
+}
+#footer{
+//border:10px dashed #ffffff;
+position: absolute bottom; 
+bottom: 0px;
+left: 0px;
+height: auto;
+background-color: #000033;
+}
+#footers{
+display: grid;
+	grid-template-columns: 40% 10% 10% 10% 10% 10% 10%; 
+}
+#border1{
+display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+.border2{
+    border:10px dashed #4C0B5F;
+}
+.item1 {
+  grid-column: 1 / 1; 
+  grid-row: 1 / span 5;
+}
+.item2 {
+  background-color:  #f5f5f5;
+}
+.item3 {
+  background-color:  #FFFFFF;
+}
+@font-face
+{
+font-family: myFont1;
+src: url('./font/Ubuntu-B-2.ttf');
+}
+.myfont1
+{
+font-family: myFont1;
+color: #FF4000
+}
+@font-face
+{
+font-family: myFont2;
+src: url('./font/Ubuntu-L-5.ttf');
+}
+.myfont2
+{
+font-family: myFont2;
+}
+@font-face
+{
+font-family: myFont3;
+src: url('./font/UbuntuMono-B-1.ttf');
+}
+.myfont3
+{
+font-family: myFont3;
+font-size: 50px;
+color:  #4B088A;
+}
+@font-face
+{
+font-family: myFont4;
+src: url('./font/Ubuntu-MI-8.ttf');
+}
+.footerfont
+{
+font-family: myFont4;
+color:  #ffffff;
+}

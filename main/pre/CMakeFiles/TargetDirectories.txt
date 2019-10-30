@@ -1,0 +1,3 @@
+/home/qinyuyang/ycjh/main/pre/CMakeFiles/rebuild_cache.dir
+/home/qinyuyang/ycjh/main/pre/CMakeFiles/main.dir
+/home/qinyuyang/ycjh/main/pre/CMakeFiles/edit_cache.dir

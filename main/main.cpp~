@@ -1,0 +1,96 @@
+#include<bits/stdc++.h>
+using namespace std;
+int t,colour,remain,lt,lflag,flag;
+int x1,x2,yy1,y2;
+const int GreenMax=20;
+const int RedMax=60;
+const int RedMin=10;
+const int RemainMax=3;
+class Subject{
+    public:
+	vector<int>left;
+	vector<int>right;
+	vector<int>top;
+	vector<int>bot;
+	int n;
+	Subject(){n=0;}
+	void add(){
+	    left.push_back(x1);
+	    right.push_back(x2);
+	    top.push_back(yy1);
+	    bot.push_back(y2);
+	    n++;
+	    //printf("$%d\n",n);
+	}
+}T[10];
+char ss[10][10],s[1000],st[1000];
+int get(){
+    freopen("main.in","r",stdin);
+    strcpy(ss[0],"bus");
+    strcpy(ss[1],"car");
+    strcpy(ss[2],"traffic");//traffic light
+    strcpy(ss[3],"person");
+    strcpy(ss[4],"motorbike");
+    strcpy(ss[5],"truck");
+    strcpy(ss[6],"bicycle");
+    while(scanf("%s",s)!=EOF){
+	//cout<<"##"<<s<<endl;
+	scanf("%s",st);
+	while(st[0]!='$') scanf("%s",st);
+	scanf("%d%d%d%d",&x1,&x2,&yy1,&y2);
+	//printf("%d %d %d %d\n",x1,x2,yy1,y2);
+	for(int i=0;i<7;i++)
+	    if(strcmp(ss[i],s)==0)
+		T[i].add();
+    }
+    fclose(stdin);
+    return (T[0].n+T[1].n+T[5].n>T[3].n+T[4].n+T[6].n);
+}
+int main(){
+    freopen("main1.in","r",stdin);
+    scanf("%d",&t);
+    scanf("%d%d%d%d",&colour,&remain,&lt,&lflag);
+    if(t>20000&&lt>=10000) t-=10000,lt-=10000;
+    fclose(stdin);
+    flag=get();
+    if(colour==0) colour=2;
+    printf("%d\n",flag);
+    if(remain){
+	if(remain<0){
+	    remain=0;
+	    colour=colour+3;
+	    if(colour==1) remain=GreenMax+1;
+	}else{
+	    remain--;
+	    if(remain==0){
+		colour=-colour;
+		remain=-1;
+	    }
+	}
+    }else{
+	if(t-lt>=RedMax-RemainMax) remain=RemainMax+1;
+	if(t-lt>=RedMin&&lflag==1&&flag==1) remain=RemainMax+1;
+    }
+    if(colour!=2) lt=t;
+    //    printf("$%d\n",colour);
+    printf("Suggestion: ");
+    if(colour<0) printf("Yellow\n");
+    if(colour==1) printf("Green\n");
+    if(colour==2) printf("Red\n");
+    freopen("out1.txt","w",stdout);
+    if(colour<0) printf("Yellow\n");
+    if(colour==1) printf("Green\n");
+    if(colour==2) printf("Red\n");
+    fclose(stdout);
+    if(remain>0&&remain<=RemainMax){
+	printf("Remain %d s\n",remain);
+	freopen("out2.txt","w",stdout);
+	printf("%ds",remain);
+	fclose(stdout);
+    }
+    fflush(stdout);
+    freopen("main.in","w",stdout);
+    printf("%d\n%d %d %d %d\n",t+1,colour,remain,lt,flag);
+    fclose(stdout);
+}
+
