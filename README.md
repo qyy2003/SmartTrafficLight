@@ -26,6 +26,7 @@ Simple, yet Powerful
 2. if you haven't install firefox,please change the code of this part at `/main/run.py`.
 3. run `./run.sh`.
 4. you can chose the useful place by circle them,please look at `main/pre/README.md`  for how to use it.
+Red and Green are for people instead of car
 
 #### Future
 
